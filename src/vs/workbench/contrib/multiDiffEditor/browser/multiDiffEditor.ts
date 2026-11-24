@@ -245,6 +245,11 @@ export class MultiDiffEditor extends AbstractEditorWithViewState<IMultiDiffEdito
 		return this._multiDiffEditorWidget?.getActiveControl()?.hasTextFocus() || super.hasFocus();
 	}
 
+	protected override setEditorVisible(visible: boolean): void {
+		super.setEditorVisible(visible);
+		this._multiDiffEditorWithFileListWidget?.setVisible(visible);
+	}
+
 	protected override computeEditorViewState(resource: URI): IMultiDiffEditorViewState | undefined {
 		return this._multiDiffEditorWidget!.getViewState();
 	}
