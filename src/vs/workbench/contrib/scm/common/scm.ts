@@ -268,4 +268,13 @@ export interface ISCMViewService {
 	 */
 	readonly activeRepository: IObservable<{ repository: ISCMRepository; pinned: boolean } | undefined>;
 	pinActiveRepository(repository: ISCMRepository | undefined): void;
+
+	/**
+	 * Whether structural changes are shown, below the files of the Source Control view and of the file list of the
+	 * multi-file diff editor. They require the `scm.structuralDiff.enabled` setting, and the user can hide them in a
+	 * workspace with "Show Structural Diff" in the View & Sort menu of the Source Control view.
+	 */
+	readonly showStructuralDiff: IObservable<boolean>;
+	/** Shows or hides structural changes in this workspace, see {@link showStructuralDiff}. */
+	setShowStructuralDiff(show: boolean): void;
 }
